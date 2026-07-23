@@ -1,74 +1,97 @@
 # 🕵️ Impostor App
 
-Um jogo de descobrir o impostor, feito para ser jogado com todos os jogadores reunidos em volta de um único dispositivo (pass-and-play).
+Um jogo de descobrir o impostor, desenvolvido em **React + TypeScript**, pensado para ser jogado com todos os participantes reunidos em torno de um único dispositivo (pass-and-play).
+
+## 🌐 Jogue agora
+
+**Acesse a aplicação:**
+
+👉 **https://ocesardev.github.io/impostor-app/**
+
+Não é necessário instalar nada. Basta abrir o link no navegador e começar a jogar.
+
+---
 
 ## 🎮 Como funciona
 
-1. **Cadastre os jogadores** — adicione o nome de cada pessoa que vai jogar.
-2. **Escolha os temas** — selecione um ou mais temas de palavras para o sorteio.
-3. **Revelação** — o app sorteia uma palavra e escolhe um jogador aleatório para ser o impostor. Cada jogador, na sua vez, revela sua função em segredo (passando o dispositivo adiante).
-4. **Início da rodada** — o app sorteia quem começa a rodada.
-5. **Jogo ao vivo** — fora do app, cada jogador diz uma palavra relacionada ao tema sorteado. Os jogadores normais tentam descobrir quem é o impostor; o impostor tenta descobrir a palavra secreta.
+1. **Cadastre os jogadores** — adicione o nome de cada participante.
+2. **Escolha os temas** — selecione um ou mais temas para o sorteio.
+3. **Revelação** — o aplicativo sorteia uma palavra e escolhe aleatoriamente um impostor. Cada jogador revela sua função em segredo e passa o dispositivo para o próximo.
+4. **Início da rodada** — o app sorteia quem começará falando.
+5. **Discussão** — cada jogador diz uma palavra relacionada ao tema. Os jogadores normais tentam identificar o impostor, enquanto o impostor tenta descobrir a palavra secreta.
+
+---
+
+## ✨ Funcionalidades
+
+* Cadastro de jogadores
+* Seleção de múltiplos temas
+* Escolha aleatória do impostor
+* Sorteio automático do primeiro jogador
+* Persistência automática da partida utilizando `localStorage`
+* Funciona totalmente offline após o carregamento inicial
+* Não utiliza backend nem banco de dados
+
+---
 
 ## 🛠️ Tecnologias
 
-- [React](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Vite](https://vitejs.dev/)
-- [React Router](https://reactrouter.com/) (`HashRouter`)
-- `localStorage` para persistência de dados (sem backend, sem necessidade de internet)
+* React
+* TypeScript
+* Vite
+* React Router (`HashRouter`)
+* localStorage
 
-## 🚀 Rodando localmente
+---
 
-```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/impostor-app.git
+## 📂 Estrutura do projeto
 
-# Entre na pasta do projeto
-cd impostor-app
-
-# Instale as dependências
-npm install
-
-# Rode o projeto em modo de desenvolvimento
-npm run dev
-```
-
-O app estará disponível em `http://localhost:5173`.
-
-## 📦 Build de produção (Não funciona ainda)
-
-```bash
-npm run build
-```
-
-Os arquivos finais serão gerados na pasta `dist/`.
-
-## 📁 Estrutura do projeto
-
-```
+```text
 src/
-├── pages/              # Telas do jogo (Home, Players, ThemeSelection, Reveal, etc.)
+├── pages/               # Telas do jogo
 ├── data/
-│   └── themes.ts        # Temas e palavras disponíveis para sorteio
+│   └── themes.ts        # Temas e palavras
 ├── hooks/
-│   └── useGameState.ts  # Hook central de estado do jogo (sincronizado com localStorage)
+│   └── useGameState.ts  # Estado global do jogo
 ├── types/
-│   └── game.ts           # Tipos TypeScript (GameState, GamePhase)
-|
-└── App.tsx               # Definição das rotas
+│   └── game.ts          # Tipagens TypeScript
+├── App.tsx              # Rotas da aplicação
+└── main.tsx             # Entrada da aplicação
 ```
 
-## 🗺️ Fluxo de telas
+---
 
+## 🗺️ Fluxo do jogo
+
+```text
+Home
+  ↓
+Players
+  ↓
+ThemeSelection
+  ↓
+Reveal
+  ↓
+RoundStart
+  ↓
+GameScreen
+  ↓
+Result
 ```
-Home → Players → ThemeSelection → Reveal → RoundStart → GameScreen → Result
-```
 
-## 📝 Notas
+---
 
-- Não há conexão com servidor ou entre dispositivos — o jogo é pensado para ser jogado em um único aparelho, compartilhado fisicamente entre os jogadores.
-- Todo o progresso da partida é salvo automaticamente no `localStorage` do navegador.
+## 💾 Armazenamento
+
+Toda a partida é salva automaticamente no `localStorage` do navegador.
+
+Isso significa que:
+
+* não existe servidor;
+* não é necessário criar conta;
+* nenhuma informação é enviada para a internet.
+
+---
 
 ## 📄 Licença
 
